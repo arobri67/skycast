@@ -82,7 +82,7 @@ function App() {
             <li>Made by Arnaud</li>
             <li>-</li>
             <li>
-              <a href=""> View on GitHub</a>
+              <a href="https://github.com/arobri67/rtc-mern2">View on GitHub</a>
             </li>
           </ul>
         </footer>
