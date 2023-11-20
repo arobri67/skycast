@@ -1,6 +1,7 @@
 .home {
   display: flex;
   justify-content: space-between;
+  padding-top: 2em;
 }
 .home ul {
   list-style: none;

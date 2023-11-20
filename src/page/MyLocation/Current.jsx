@@ -4,7 +4,7 @@ import CurrentWeatherViewer from "../../components/CurrentWeatherViewer";
 import "./Current.css";
 
 const Current = () => {
-  const { userLocation, errorMsg } = useGeoLocation();
+  const { userLocation, errorMsg, citySelected } = useGeoLocation();
   return (
     <>
       {errorMsg.code === 1 ? (

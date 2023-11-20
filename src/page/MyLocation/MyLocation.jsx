@@ -1,16 +1,17 @@
 import { Route, Routes, NavLink, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useGeoLocation } from "../../context/LocationContext";
 import Current from "./Current";
 import Forecast from "./Forecast";
 import UserLocation from "../../components/UserLocation";
 import "./MyLocation.css";
 
 const MyLocation = () => {
-  // Automatically redirect to /current on the first visit
-  const navigate = useNavigate();
+  const { setCity, citySelected } = useGeoLocation();
+
   useEffect(() => {
-    navigate("/current");
-  }, []);
+    setCity(null);
+  }, [citySelected]);
 
   return (
     <>

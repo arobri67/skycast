@@ -3,10 +3,16 @@ import MyLocation from "./page/MyLocation/MyLocation";
 import OtherCities from "./page/OtherCities/OtherCities";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useWeather } from "./context/WeatherContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  // Automatically redirect to /current on the first visit
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/current");
+  }, []);
   const { userWeather } = useWeather();
-
   //function to dynamically reasign the background image based on the weather
   const getBackgroundImg = () => {
     if (userWeather !== null) {

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 const CitySelection = () => {
   const { setLocation, setCity, citySelected } = useGeoLocation();
-  console.log(citySelected);
 
   const handleCitySelection = (e) => {
     const cityValue = e.target.value;

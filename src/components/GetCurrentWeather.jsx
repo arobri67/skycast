@@ -24,7 +24,6 @@ const GetCurrentWeather = () => {
   useEffect(() => {
     getData();
   }, [userLocation]);
-  console.log(userWeather);
   return null;
 };
 
