@@ -53,3 +53,12 @@
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 320px) {
+  .forecast-bottom > ul {
+    flex-wrap: wrap;
+  }
+  .forecast-bottom > ul > li {
+    flex-wrap: wrap;
+    gap: 1.2em;
+  }
+}

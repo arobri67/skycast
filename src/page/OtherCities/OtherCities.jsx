@@ -19,21 +19,23 @@ const OtherCities = () => {
   return (
     <>
       <nav className="other-nav">
-        <NavLink
-          to="./other-current"
-          className="nav-sublink"
-          activeclassname="active"
-        >
-          CURRENT WEATHER
-        </NavLink>
-        <NavLink
-          to="./other-forecast"
-          className="nav-sublink"
-          activeclassname="active"
-        >
-          5-DAYS FORECAST
-        </NavLink>
-        <CitySelection />
+        <div className="nav-sublink-container">
+          <NavLink
+            to="./other-current"
+            className="nav-sublink"
+            activeclassname="active"
+          >
+            CURRENT WEATHER
+          </NavLink>
+          <NavLink
+            to="./other-forecast"
+            className="nav-sublink"
+            activeclassname="active"
+          >
+            5-DAYS FORECAST
+          </NavLink>
+          <CitySelection />
+        </div>
       </nav>
       <section className="other">
         <Routes>

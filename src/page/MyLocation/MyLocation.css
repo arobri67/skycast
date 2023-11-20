@@ -7,18 +7,20 @@
   list-style: none;
 }
 .home-nav {
-  display: inline-flex;
-  justify-content: flex-end;
-  gap: 1em;
+  display: flex;
+}
+.nav-sublink-container {
   border-radius: 1.5em;
-  padding: 2em 1em;
+  padding: 1em 0.5em;
   background-color: var(--primary-transparent-color);
 }
+
 .nav-sublink {
   color: var(--secondary-color);
   font-weight: 400;
   font-size: 1.5rem;
   text-decoration: none;
+  padding: 0 0.5em;
 }
 .nav-sublink:visited {
   color: var(--secondary-color);

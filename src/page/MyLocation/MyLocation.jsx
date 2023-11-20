@@ -17,16 +17,22 @@ const MyLocation = () => {
     <>
       <UserLocation />
       <nav className="home-nav">
-        <NavLink to="/current" className="nav-sublink" activeclassname="active">
-          CURRENT WEATHER
-        </NavLink>
-        <NavLink
-          to="/forecast"
-          className="nav-sublink"
-          activeclassname="active"
-        >
-          5-DAYS FORECAST
-        </NavLink>
+        <div className="nav-sublink-container">
+          <NavLink
+            to="/current"
+            className="nav-sublink"
+            activeclassname="active"
+          >
+            CURRENT WEATHER
+          </NavLink>
+          <NavLink
+            to="/forecast"
+            className="nav-sublink"
+            activeclassname="active"
+          >
+            5-DAYS FORECAST
+          </NavLink>
+        </div>
       </nav>
       <section className="home">
         <Routes>
