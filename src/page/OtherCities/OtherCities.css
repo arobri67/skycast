@@ -1,0 +1,43 @@
+.other {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5em;
+}
+.other ul {
+  list-style: none;
+}
+.other-nav {
+  display: inline-flex;
+  justify-content: flex-end;
+  gap: 1em;
+  border-radius: 1.5em;
+  padding: 2em 1em;
+  background-color: var(--primary-transparent-color);
+}
+.nav-sublink {
+  color: var(--secondary-color);
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.nav-sublink:visited {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.nav-sublink:hover {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.nav-sublink.active {
+  text-decoration: underline;
+  font-weight: 700;
+}
+#citySelect {
+  background-color: rgba(48, 54, 38, 0);
+  color: #f2f2f2;
+  border: 1px solid #f2f2f2;
+  font-size: 1.5rem;
+  font-weight: 500;
+  outline: 0;
+  border-radius: 0.7em;
+}
