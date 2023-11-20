@@ -1,4 +1,5 @@
 import { useWeather } from "../context/WeatherContext";
+import celsisusLogo from "../assets/celsius.svg";
 import "./MainWeatherInfo.css";
 const MainWeatherInfo = () => {
   const { userWeather } = useWeather();
@@ -12,7 +13,7 @@ const MainWeatherInfo = () => {
     return `${hours}:${minutes} `;
   };
 
-  // function to convert city name when it is needed. (for example, the API will have Masnou, El; this function will converti it to El Masnou)
+  // function to convert city name when it is needed. (for example, the API will have Masnou, El; this function will convert it to El Masnou)
   const getCityNameFormated = () => {
     if (userWeather.name.includes(",")) {
       const cityNameFormated =
@@ -25,7 +26,7 @@ const MainWeatherInfo = () => {
   //function to get the path for the icon matching the current weather
   const getWeatherIcon = (item) => {
     const reFormatIconName = item.slice(0, -1);
-    return `/src/assets/weather_icon/${reFormatIconName}.svg`;
+    return `../assets/weather_icon/${reFormatIconName}.svg`;
   };
   return (
     <article className="main-info">
@@ -35,7 +36,7 @@ const MainWeatherInfo = () => {
             <div className="temp">
               <h2>{Math.round(userWeather.main.temp)}</h2>
               <div className="celsius-icon-container">
-                <img src="/src/assets/celsius.svg" alt="" />
+                <img src={celsisusLogo} alt="celsius logo" />
               </div>
             </div>
             <div className="feels">
