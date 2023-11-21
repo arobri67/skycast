@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useWeather } from "../context/WeatherContext";
 import { useGeoLocation } from "../context/LocationContext";
+const OPEN_WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 const GetCurrentWeather = () => {
   // Access userLocation and setWeather from LocationContext and WeatherContext
@@ -10,7 +11,6 @@ const GetCurrentWeather = () => {
   // Define OpenWeatherMap API key and base URL
 
   //`80e3049067db3b72e7e3e9aa3c545a26`
-  const OPEN_WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const API_BASE_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${userLocation.latitude}&lon=${userLocation.longitude}&appid=${OPEN_WEATHER_API_KEY}&units=metric`;
   // Function to fetch weather data from OpenWeatherMap API
   const getData = async () => {
