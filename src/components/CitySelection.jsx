@@ -1,5 +1,6 @@
 import { useGeoLocation } from "../context/LocationContext";
 import citiesLocation from "../DATA/citiesLocation";
+import { useEffect } from "react";
 
 const CitySelection = () => {
   // Access setLocation, setCity, and citySelected from LocationContext
