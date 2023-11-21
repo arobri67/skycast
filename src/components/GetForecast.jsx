@@ -9,7 +9,8 @@ const GetForecast = () => {
   const { setForecast } = useWeather();
 
   // Define OpenWeatherMap API key and base URL
-  const OPEN_WEATHER_API_KEY = `80e3049067db3b72e7e3e9aa3c545a26`;
+  //`80e3049067db3b72e7e3e9aa3c545a26`
+  const OPEN_WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const API_BASE_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${userLocation.latitude}&lon=${userLocation.longitude}&appid=${OPEN_WEATHER_API_KEY}&units=metric`;
 
   // Function to fetch forecast data from OpenWeatherMap API
