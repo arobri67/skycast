@@ -39,6 +39,8 @@ function App() {
         weatherCondition === "Tornado"
       ) {
         return { backgroundImage: `url("/img/mist.jpg")` };
+      } else if (weatherCondition === "Drizzle") {
+        return { backgroundImage: `url("/img/rain.jpg")` };
       }
     }
   };

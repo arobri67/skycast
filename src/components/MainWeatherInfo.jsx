@@ -1,6 +1,16 @@
 import { useWeather } from "../context/WeatherContext";
-import celsisusLogo from "../assets/celsius.svg";
+import celsiusLogo from "../assets/celsius.svg";
+import clearSky from "../assets/weather_icon/01.svg";
+import fewClouds from "../assets/weather_icon/02.svg";
+import scatteredClouds from "../assets/weather_icon/03.svg";
+import brokenClouds from "../assets/weather_icon/04.svg";
+import showerRain from "../assets/weather_icon/09.svg";
+import rain from "../assets/weather_icon/10.svg";
+import thunderstorm from "../assets/weather_icon/11.svg";
+import snow from "../assets/weather_icon/13.svg";
+import mist from "../assets/weather_icon/50.svg";
 import "./MainWeatherInfo.css";
+
 const MainWeatherInfo = () => {
   const { userWeather } = useWeather();
 
@@ -24,10 +34,31 @@ const MainWeatherInfo = () => {
     }
   };
   //function to get the path for the icon matching the current weather
-  const getWeatherIcon = (item) => {
-    const reFormatIconName = item.slice(0, -1);
-    return `../assets/weather_icon/${reFormatIconName}.svg`;
+  const getBackgroundImg = () => {
+    if (userWeather !== null) {
+      const weatherCondition = userWeather.weather[0].icon;
+      if (weatherCondition === "01d" || weatherCondition === "01n") {
+        return clearSky;
+      } else if (weatherCondition === "02d" || weatherCondition === "02n") {
+        return fewClouds;
+      } else if (weatherCondition === "03d" || weatherCondition === "03n") {
+        return scatteredClouds;
+      } else if (weatherCondition === "04d" || weatherCondition === "04n") {
+        return brokenClouds;
+      } else if (weatherCondition === "09d" || weatherCondition === "09n") {
+        return showerRain;
+      } else if (weatherCondition === "10d" || weatherCondition === "10n") {
+        return rain;
+      } else if (weatherCondition === "11d" || weatherCondition === "11n") {
+        return thunderstorm;
+      } else if (weatherCondition === "13d" || weatherCondition === "13n") {
+        return snow;
+      } else if (weatherCondition === "50d" || weatherCondition === "50n") {
+        return mist;
+      }
+    }
   };
+
   return (
     <article className="main-info">
       <div className="current-card">
@@ -36,7 +67,7 @@ const MainWeatherInfo = () => {
             <div className="temp">
               <h2>{Math.round(userWeather.main.temp)}</h2>
               <div className="celsius-icon-container">
-                <img src={celsisusLogo} alt="celsius logo" />
+                <img src={celsiusLogo} alt="celsius logo" />
               </div>
             </div>
             <div className="feels">
@@ -45,10 +76,7 @@ const MainWeatherInfo = () => {
           </div>
           <div className="right-weather">
             <div className="weather-icon-container">
-              <img
-                src={getWeatherIcon(userWeather.weather[0].icon)}
-                alt={userWeather.weather[0].main}
-              />
+              <img src={getBackgroundImg()} alt={userWeather.weather[0].main} />
             </div>
           </div>
         </div>
