@@ -11,7 +11,7 @@ SkyCast is a weather application built with React that allows users to check the
 
 ## Demo
 
-[View Demo](https://prismatic-lily-9b9640.netlify.app/current)
+[View Demo](https://prismatic-lily-9b9640.netlify.app/)
 
 ## Project Structure
 
