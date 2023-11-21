@@ -62,7 +62,7 @@ function App() {
           <nav className="main-nav">
             {/* Navigation link to MyLocation */}
             <NavLink
-              to="/mylocation"
+              to="/current"
               className="nav-link"
               activeclassname="active"
             >
