@@ -43,22 +43,26 @@
   flex-direction: column;
 }
 .cloud,
-.rain {
+.rain,
+.wind,
+.humidity {
   display: flex;
   align-items: center;
   gap: 0.2em;
 }
 
-.cloud-rain {
+.cloud-rain,
+.wind-humidity {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .forecast-bottom > ul {
     flex-wrap: wrap;
   }
   .forecast-bottom > ul > li {
     flex-wrap: wrap;
-    gap: 1.2em;
+    gap: 0.3em;
+    justify-content: space-evenly;
   }
 }

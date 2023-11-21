@@ -11,6 +11,9 @@ import snow from "../assets/weather_icon/13.svg";
 import mist from "../assets/weather_icon/50.svg";
 import umbrella from "../assets/card_icon/rain.svg";
 import cloud from "../assets/card_icon/cloud.svg";
+import wind from "../assets/card_icon/windy.svg";
+import humidity from "../assets/card_icon/humidity.svg";
+
 import "./ForecastViewer.css";
 
 const ForecastViewer = () => {
@@ -113,6 +116,18 @@ const ForecastViewer = () => {
                             ) : (
                               <div>0mm</div>
                             )}
+                          </div>
+                        </div>
+                        <div className="wind-humidity">
+                          <div className="wind">
+                            <img src={wind} alt="wind icon" />
+                            <span>
+                              {item.wind.speed}m.s<sup>-1</sup>
+                            </span>
+                          </div>
+                          <div className="humidity">
+                            <img src={humidity} alt="humidity icon" />
+                            <span>{item.main.humidity}%</span>
                           </div>
                         </div>
                       </li>
