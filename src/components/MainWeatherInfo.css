@@ -1,4 +1,7 @@
 /* main weather card */
+.current-card ul {
+  list-style: none;
+}
 .current-card {
   flex: 0 0 auto;
   background-color: var(--primary-transparent-color);

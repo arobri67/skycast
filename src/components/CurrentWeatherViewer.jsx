@@ -7,12 +7,12 @@ import humidity from "../assets/card_icon/humidity.svg";
 import sunrise from "../assets/card_icon/sunrise.svg";
 import sunset from "../assets/card_icon/sunset.svg";
 import windy from "../assets/card_icon/windy.svg";
-
 import "./CurrentWeatherViewer.css";
 
 const CurrentWeatherViewer = () => {
+  // Access userWeather from WeatherContext
   const { userWeather } = useWeather();
-  //function to format unix time
+  // Function to format Unix time
   const formatUnixTime = (unixtime) => {
     const unixToTime = new Date(unixtime * 1000);
     const getMinutes = unixToTime.getMinutes();
@@ -21,9 +21,12 @@ const CurrentWeatherViewer = () => {
   };
   return (
     <>
+      {/* Display the content only if userWeather is available */}
       {userWeather !== null ? (
         <>
+          {/* Display MainWeatherInfo component */}
           <MainWeatherInfo />
+          {/* Additional weather information */}
           <article className="current-weather">
             <div className="current-expanded-card">
               <div className="current-top">
@@ -67,22 +70,13 @@ const CurrentWeatherViewer = () => {
                       Wind: {userWeather.wind.speed}m.s<sup>-1</sup>
                     </span>
                   </li>
-                  {/* in the doc we can get weather but i do not see it */}
-                  {/* <li>
-                    <img src="/src/assets/current_icon/rain.svg" alt="wind" />
-                    {userWeather.rain &&
-                    userWeather.rain["3h"] !== undefined ? (
-                      <span>Rain: {userWeather.rain["3h"]}mm</span>
-                    ) : (
-                      <span>Rain: 0mm</span>
-                    )}
-                  </li> */}
                 </ul>
               </div>
             </div>
           </article>
         </>
       ) : null}
+      {/* Render nothing if userWeather is not available */}
     </>
   );
 };

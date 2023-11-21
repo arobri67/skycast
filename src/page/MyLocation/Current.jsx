@@ -1,12 +1,13 @@
 import { useGeoLocation } from "../../context/LocationContext";
 import GetCurrentWeather from "../../components/GetCurrentWeather";
 import CurrentWeatherViewer from "../../components/CurrentWeatherViewer";
-import "./Current.css";
 
 const Current = () => {
-  const { userLocation, errorMsg, citySelected } = useGeoLocation();
+  // Access userLocation and errorMsg from LocationContext
+  const { userLocation, errorMsg } = useGeoLocation();
   return (
     <>
+      {/* Display error message if geolocation permission is denied */}
       {errorMsg.code === 1 ? (
         <div className="error">
           <h2>Oops! Something went wrong while fetching your location.</h2>
@@ -16,11 +17,15 @@ const Current = () => {
           </p>
         </div>
       ) : userLocation.latitude !== null && userLocation.longitude !== null ? (
+        // Display current weather components if userLocation is available
         <>
+          {/* Component to get current weather data */}
           <GetCurrentWeather />
+          {/* Component to display the current weather */}
           <CurrentWeatherViewer />
         </>
       ) : (
+        // Display loading message if userLocation is not available yet
         <div className="loading">
           <h2>Loading weather data. Please wait...</h2>
         </div>

@@ -1,19 +1,21 @@
-import "./App.css";
-import MyLocation from "./page/MyLocation/MyLocation";
-import OtherCities from "./page/OtherCities/OtherCities";
+import { useEffect } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useWeather } from "./context/WeatherContext";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import MyLocation from "./page/MyLocation/MyLocation";
+import OtherCities from "./page/OtherCities/OtherCities";
+import "./App.css";
 
 function App() {
-  // Automatically redirect to /current on the first visit
   const navigate = useNavigate();
+  // Redirect to "/current" on the first visit using useEffect
   useEffect(() => {
     navigate("/current");
   }, []);
+
   const { userWeather } = useWeather();
-  //function to dynamically reasign the background image based on the weather
+
+  // Function to dynamically assign the background image based on weather conditions
   const getBackgroundImg = () => {
     if (userWeather !== null) {
       const weatherCondition = userWeather.weather[0].main;
@@ -46,7 +48,9 @@ function App() {
   };
   return (
     <>
+      {/* Main container with dynamic background */}
       <div id="container" style={getBackgroundImg()}>
+        {/* Header section */}
         <header>
           <div className="logo-container">
             <div className="img-container">
@@ -54,14 +58,17 @@ function App() {
             </div>
             <h1>SkyCast</h1>
           </div>
+          {/* Navigation section */}
           <nav className="main-nav">
+            {/* Navigation link to MyLocation */}
             <NavLink
-              to="/current"
+              to="/mylocation"
               className="nav-link"
               activeclassname="active"
             >
               MY LOCATION
             </NavLink>
+            {/* Navigation link to OtherCities */}
             <NavLink
               to="/other-cities"
               className="nav-link"
@@ -71,12 +78,16 @@ function App() {
             </NavLink>
           </nav>
         </header>
+        {/* Main content section */}
         <main>
           <Routes>
+            {/* Route for the default path */}
             <Route path="/*" element={<MyLocation />} />
+            {/* Route for other cities */}
             <Route path="/other-cities/*" element={<OtherCities />} />
           </Routes>
         </main>
+        {/* Footer section */}
         <footer>
           <ul className="footer-info">
             <li>SkyCast</li>

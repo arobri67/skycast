@@ -3,9 +3,7 @@
   justify-content: space-between;
   padding-top: 2em;
 }
-.home ul {
-  list-style: none;
-}
+/* navigation */
 .home-nav {
   display: flex;
 }
@@ -14,7 +12,6 @@
   padding: 1em 0.5em;
   background-color: var(--primary-transparent-color);
 }
-
 .nav-sublink {
   color: var(--secondary-color);
   font-weight: 400;
@@ -33,4 +30,21 @@
 .nav-sublink.active {
   text-decoration: underline;
   font-weight: 700;
+}
+/* loading, error */
+.error,
+.loading {
+  background-color: var(--primary-transparent-color);
+  border-radius: 2em;
+  padding: 2em;
+}
+.error h2,
+.loading h2 {
+  font-size: 3rem;
+  padding: 0.25em 0;
+}
+.error p,
+.loading p {
+  font-size: 2rem;
+  padding: 0.25em 0;
 }

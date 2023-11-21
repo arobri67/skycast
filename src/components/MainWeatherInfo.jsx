@@ -12,9 +12,10 @@ import mist from "../assets/weather_icon/50.svg";
 import "./MainWeatherInfo.css";
 
 const MainWeatherInfo = () => {
+  // Access userWeather from WeatherContext
   const { userWeather } = useWeather();
 
-  //function to get time and the minute
+  // Function to get time and format it
   const getTime = () => {
     const today = new Date();
     const hours = today.getHours();
@@ -23,7 +24,7 @@ const MainWeatherInfo = () => {
     return `${hours}:${minutes} `;
   };
 
-  // function to convert city name when it is needed. (for example, the API will have Masnou, El; this function will convert it to El Masnou)
+  // Function to format city name
   const getCityNameFormated = () => {
     if (userWeather.name.includes(",")) {
       const cityNameFormated =
@@ -33,7 +34,7 @@ const MainWeatherInfo = () => {
       return `${userWeather.name}`;
     }
   };
-  //function to get the path for the icon matching the current weather
+  // Function to get the path for the icon matching the current weather
   const getBackgroundImg = () => {
     if (userWeather !== null) {
       const weatherCondition = userWeather.weather[0].icon;

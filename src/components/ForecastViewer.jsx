@@ -11,19 +11,19 @@ import snow from "../assets/weather_icon/13.svg";
 import mist from "../assets/weather_icon/50.svg";
 import umbrella from "../assets/card_icon/rain.svg";
 import cloud from "../assets/card_icon/cloud.svg";
-
 import "./ForecastViewer.css";
 
 const ForecastViewer = () => {
+  // Access userForecast and userWeather from WeatherContext
   const { userForecast, userWeather } = useWeather();
-  //function to get the date for each 5 day of the forecast
+  // Function to get the date for each 5-day forecast
   const getDateMonth = (unixtime) => {
     const unixToTime = new Date(unixtime * 1000);
     const date = unixToTime.getDate();
     const month = unixToTime.getMonth() + 1;
     return `${date}/${month}`;
   };
-  //function to convert the date into "Today"
+  // Function to convert the date into "Today"
   const getDay = (unixtime) => {
     const options = { weekday: "short" };
     const todayDay = new Intl.DateTimeFormat("en-US", options).format(
@@ -36,7 +36,7 @@ const ForecastViewer = () => {
     }
     return `${day}`;
   };
-  //function to get the path for the icon matching the current weather
+  // Function to get the path for the icon matching the current weather
   const getMiniWeatherIcon = () => {
     if (userWeather !== null) {
       const weatherCondition = userWeather.weather[0].icon;
@@ -64,9 +64,12 @@ const ForecastViewer = () => {
 
   return (
     <>
+      {/* Display the content only if userWeather and userForecast are available */}
       {userWeather !== null && userForecast !== null ? (
         <>
+          {/* Display MainWeatherInfo component */}
           <MainWeatherInfo />
+          {/* Display 5-day weather forecast */}
           <article className="forecast">
             <div className="forecast-card">
               <div className="forecast-top">
@@ -74,10 +77,14 @@ const ForecastViewer = () => {
               </div>
               <div className="forecast-bottom">
                 <ul>
+                  {/* Map through filtered forecast data and display relevant information */}
                   {userForecast.list
+                    // Filter to select every 8th item (for once per day)
                     .filter((item, index) => index % 8 === 0)
+                    // Map through the filtered data and display each day's forecast
                     .map((item) => (
                       <li key={item.dt}>
+                        {/* Display date, mini weather icon, max/min temperature, cloud/rain information */}
                         <div className="forecast-date">
                           <span>{getDay(item.dt)}</span>
                           <span>{getDateMonth(item.dt)}</span>
@@ -115,7 +122,8 @@ const ForecastViewer = () => {
             </div>
           </article>
         </>
-      ) : null}
+      ) : null}{" "}
+      {/* Render nothing if userWeather or userForecast is not available */}
     </>
   );
 };
