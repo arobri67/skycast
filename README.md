@@ -1,46 +1,28 @@
 # SkyCast - Weather App
 
-SkyCast is a weather application built with React that allows users to check the current weather and 5-day forecast for their location or other selected cities. It is a project that was made for the RtC bootcamp (https://www.rockthecode.es/).
+SkyCast is a modern, responsive weather application built with React that allows users to check the current weather and 5-day forecast for their location or other selected cities. This project was developed as part of the RtC bootcamp (https://www.rockthecode.es/).
 
 ## Features
 
-- View the current weather for your location.
-- Check a 5-day weather forecast.
-- Select other cities to view their current weather and forecast.
-- Responsive design for a seamless experience on different devices.
+- View the current weather for your location
+- Check a 5-day weather forecast
+- Select other cities to view their current weather and forecast
+- Responsive design for a seamless experience on different devices
 
 ## Demo
 
 [View Demo](https://prismatic-lily-9b9640.netlify.app/)
 
-## Project Structure
+## Key React Concepts Used
 
-- **`src/`**: Contains the source code for the React application.
-  - **`components/`**: Reusable React components.
-    - **`CitySelection/`**: Component for selecting a city and managing geolocation based on the chosen city.
-    - **`CurrentWeatherViewer/`**: Component for displaying current weather details.
-    - **`ForecastViewer/`**: Component for displaying 5-day weather forecast.
-    - **`GetCurrentWeather/`**: Component for fetching and displaying current weather data.
-    - **`GetForecast/`**: Component for fetching and displaying weather forecast data.
-    - **`MainWeatherInfo/`**: Component for displaying main weather information.
-    - **`UserLocation/`**: Component for handling user geolocation.
-  - **`context/`**: React context providers for state management.
-    - **`LocationContext.jsx`**: Context provider for managing geolocation.
-    - **`WeatherContext.jsx`**: Context provider for managing weather data.
-  - **`DATA/`**: Data files used in the app.
-    - **`citiesLocation.js`**: File containing latitude and longitude of preselected cities.
-  - **`page/`**: Components representing different pages of the application.
-    - **`MyLocation/`**: Page component for the user's current location.
-    - **`OtherCities/`**: Page component for other cities' weather.
-  - **`App.jsx`**: Main application component.
+- **Context API**: Utilized for global state management, handling user location and weather data across components.
+- **Hooks**: Leveraged various React hooks such as useState, useEffect, and useContext for state management and side effects.
+- **Custom Hooks**: Implemented custom hooks to encapsulate and reuse stateful logic across components.
+- **Functional Components**: Built the entire application using functional components, embracing the modern React paradigm.
+- **Conditional Rendering**: Employed conditional rendering techniques to display different UI elements based on the application state.
+- **Props**: Utilized prop passing to share data and functionality between parent and child components.
 
-## Technologies Used
+## Acknowledgments
 
-- **React**: A JavaScript library for building user interfaces.
-- **React Router**: Declarative routing for React.js.
-- **Vite.js**: A fast, opinionated web dev build tool that serves your code via native ES Module imports during development.
-- **Axios**: A promise-based HTTP client for the browser and Node.js.
-
-## License
-
-This project is licensed under the MIT Licence - see the LICENCE.txt file for details.
+- OpenWeatherMap API for providing weather data
+- RtC bootcamp for the project inspiration
